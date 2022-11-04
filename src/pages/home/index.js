@@ -39,7 +39,10 @@ export default function Home() {
   }, [confirm, latitude, longitude]);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+      enableHighAccuracy: true,
+      maximumAge: 10000,
+    });
   }, []);
 
   return (

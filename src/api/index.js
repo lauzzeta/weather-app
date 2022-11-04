@@ -25,17 +25,9 @@ function groupBy(objectArray, property) {
 
 export const getWeatherDays = async (lat, lng) => {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=metric&appid=88adc6c7d3daa4a8c57d2d903c3728dd`
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=metric&appid=88adc6c7d3daa4a8c57d2d903c3728dd`
   );
   const data = await response.json();
   const grouped = await groupBy(data.list, "dt");
   return grouped;
-};
-
-export const getName = async (lat, lng) => {
-  const response = await fetch(
-    `https://us1.locationiq.com/v1/reverse?key=pk.86da328a97d15e9b8f47f9c1e395aded&lat=${lat}&lon=${lng}&format=json`
-  );
-  const data = await response.json();
-  return data;
 };

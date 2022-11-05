@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Toolbar, Typography, Slide } from "@mui/material";
+import { Toolbar, Typography, Slide, IconButton } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function Header() {
   const containerRef = React.useRef(null);
@@ -29,6 +30,16 @@ function Header() {
         >
           Live Weather
         </Typography>
+      </Slide>
+      <Slide
+        in
+        direction="down"
+        {...(true ? { timeout: 500 } : {})}
+        container={containerRef.current}
+      >
+        <IconButton component="a" href={"https://github.com/lauzzeta"}>
+          <GitHubIcon />
+        </IconButton>
       </Slide>
     </Toolbar>
   );
